@@ -1,0 +1,16 @@
+{
+  "project": "procureflow-ai",
+  "mode": "interactive",
+  "current_phase": 1,
+  "total_phases": 7,
+  "workflow": "gsd",
+  "platform": "windows",
+  "python_cmd": "py",
+  "pip_cmd": "py -m pip",
+  "pytest_cmd": "py -m pytest",
+  "uvicorn_cmd": "py -m uvicorn",
+  "commit_attribution": false,
+  "paid_apis_allowed": false,
+  "autonomous_spending_approval": false,
+  "created": "2026-06-04"
+}

@@ -5,7 +5,7 @@
 | Phase | Name | Status | Key Deliverable |
 |-------|------|--------|-----------------|
 | 0 | Planning & Architecture | DONE | .planning/ foundation, docs/ |
-| 1 | 1/8 | In Progress|  |
+| 1 | 5/8 | In Progress | DB schema, settings, Pydantic schemas, JWT auth core, auth+users routers |
 | 2 | AI Review Service | TODO | MockProvider, AIReviewService, provider interface, tests |
 | 3 | Frontend MVP | TODO | React+Vite, 3 screens, JWT auth flow, API integration |
 | 4 | Security Hardening | TODO | IDOR audit, rate limiting, input hardening, security checklist |

@@ -1,0 +1,34 @@
+{
+  "env": {
+    "PROCUREFLOW_PROJECT": "1",
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "50"
+  },
+  "disabledMcpjsonServers": [
+    "jira",
+    "firecrawl",
+    "supabase",
+    "memory",
+    "omega-memory",
+    "sequential-thinking",
+    "vercel",
+    "railway",
+    "cloudflare-docs",
+    "cloudflare-workers-builds",
+    "cloudflare-workers-bindings",
+    "cloudflare-observability",
+    "clickhouse",
+    "exa-web-search",
+    "magic",
+    "filesystem",
+    "playwright",
+    "fal-ai",
+    "browserbase",
+    "browser-use",
+    "devfleet",
+    "token-optimizer",
+    "laraplugins",
+    "confluence",
+    "evalview"
+  }
+}

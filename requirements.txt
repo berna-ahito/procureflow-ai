@@ -7,6 +7,7 @@ passlib[bcrypt]  # password hashing
 pydantic[email]  # validation + EmailStr type
 pydantic-settings  # Settings from env vars
 python-dotenv  # load .env into os.environ
-httpx  # test client for FastAPI TestClient
+httpx  # test client for FastAPI TestClient + Slack webhook
+groq  # Groq AI provider (free tier)
 pytest  # test runner
 pytest-cov  # coverage reporting

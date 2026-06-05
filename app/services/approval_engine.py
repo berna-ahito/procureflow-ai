@@ -60,7 +60,9 @@ def apply_decision(db: Session, request: PurchaseRequest, decision: str, note: O
         "rejected": "rejected",
         "needs_more_info": "needs_more_info",
     }
-    new_status = status_map[decision]
+    new_status = status_map.get(decision)
+    if new_status is None:
+        raise ValueError(f"Invalid decision value: {decision}")
     validate_transition(request.status, new_status)
     request.status = new_status
     db.commit()

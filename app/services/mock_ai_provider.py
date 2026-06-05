@@ -1,8 +1,9 @@
 from app.db.models import PurchaseRequest
 from app.schemas.ai_review import AIReviewResult
+from app.services.ai_review_base import AIReviewProvider
 
 
-class MockAIProvider:
+class MockAIProvider(AIReviewProvider):
     _URGENCY_MAP: dict[str, str] = {
         "low": "low",
         "medium": "medium",

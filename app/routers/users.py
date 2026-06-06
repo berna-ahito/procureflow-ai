@@ -15,6 +15,15 @@ def get_me(current_user: User = Depends(get_current_active_user)):
     return UserResponse.model_validate(current_user)
 
 
+@router.get("/", response_model=list[UserResponse])
+def list_users(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_role("admin")),
+):
+    users = db.query(User).order_by(User.id.asc()).all()
+    return [UserResponse.model_validate(u) for u in users]
+
+
 @router.post("/", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 def create_user(
     body: UserCreate,

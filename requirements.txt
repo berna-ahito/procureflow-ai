@@ -9,5 +9,6 @@ pydantic-settings  # Settings from env vars
 python-dotenv  # load .env into os.environ
 httpx  # test client for FastAPI TestClient + Slack webhook
 groq  # Groq AI provider (free tier)
+slowapi  # per-IP rate limiting
 pytest  # test runner
 pytest-cov  # coverage reporting

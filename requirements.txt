@@ -3,7 +3,6 @@ uvicorn[standard]  # ASGI server
 sqlalchemy  # ORM (sync-first, async-optional later)
 alembic  # DB migrations
 PyJWT>=2.8.0  # JWT encode/decode
-passlib[bcrypt]  # password hashing
 pydantic[email]  # validation + EmailStr type
 pydantic-settings  # Settings from env vars
 python-dotenv  # load .env into os.environ

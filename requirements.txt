@@ -2,7 +2,7 @@ fastapi  # web framework
 uvicorn[standard]  # ASGI server
 sqlalchemy  # ORM (sync-first, async-optional later)
 alembic  # DB migrations
-python-jose[cryptography]  # JWT encode/decode
+PyJWT>=2.8.0  # JWT encode/decode
 passlib[bcrypt]  # password hashing
 pydantic[email]  # validation + EmailStr type
 pydantic-settings  # Settings from env vars

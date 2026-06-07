@@ -94,7 +94,9 @@ def update_request(
 
 
 @router.post("/{request_id}/submit", response_model=PurchaseRequestResponse)
+@limiter.limit("20/minute")
 def submit_request(
+    request: Request,
     request_id: int,
     db: Session = Depends(get_db),
     current_user: User = Depends(require_role("requester")),

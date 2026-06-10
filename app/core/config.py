@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     groq_api_key: str = ""
     slack_webhook_url: str = ""
     app_env: str = "development"
+    cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
 
     model_config = SettingsConfigDict(env_file=".env")
 

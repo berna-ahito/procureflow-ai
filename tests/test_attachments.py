@@ -116,3 +116,14 @@ def test_unauthenticated_upload_returns_401(client, auth_headers, seed_users):
     req_id = _create_request(client, auth_headers["alice"])
     resp = _upload_file(client, req_id, headers={})  # no auth
     assert resp.status_code == 401
+
+
+def test_idor_list_attachments_different_user_returns_403(client, auth_headers, seed_users):
+    # Alice creates a request and uploads an attachment
+    req_id = _create_request(client, auth_headers["alice"])
+    _upload_file(client, req_id, auth_headers["alice"])
+
+    # Bob (manager) tries to list Alice's attachments — request has no assigned_role,
+    # so _get_request_or_403 denies him with 403
+    resp = client.get(f"/requests/{req_id}/attachments", headers=auth_headers["bob"])
+    assert resp.status_code == 403

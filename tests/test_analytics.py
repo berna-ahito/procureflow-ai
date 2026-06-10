@@ -6,6 +6,8 @@ Tests for:
   GET /analytics/categories
 """
 import pytest
+from sqlalchemy import text
+
 from app.db.models import PurchaseRequest
 
 
@@ -128,18 +130,17 @@ class TestSpendEndpoint:
 
     def test_spend_date_from_filter(self, client, auth_headers, seed_users, db_session):
         """date_from filters out older requests."""
-        from datetime import datetime, timezone
         alice = seed_users["alice"]
 
         old = _make_request(db_session, alice.id, "IT", "high", 999.0)
         # Force old created_at
         db_session.execute(
-            __import__("sqlalchemy").text("UPDATE purchase_requests SET created_at = '2020-01-01' WHERE id = :id"),
+            text("UPDATE purchase_requests SET created_at = '2020-01-01' WHERE id = :id"),
             {"id": old.id},
         )
         db_session.commit()
 
-        new = _make_request(db_session, alice.id, "HR", "low", 50.0)
+        _make_request(db_session, alice.id, "HR", "low", 50.0)
 
         resp = client.get("/analytics/spend?date_from=2024-01-01", headers=auth_headers["admin"])
         assert resp.status_code == 200
@@ -154,12 +155,12 @@ class TestSpendEndpoint:
 
         old = _make_request(db_session, alice.id, "IT", "high", 100.0)
         db_session.execute(
-            __import__("sqlalchemy").text("UPDATE purchase_requests SET created_at = '2020-06-15' WHERE id = :id"),
+            text("UPDATE purchase_requests SET created_at = '2020-06-15' WHERE id = :id"),
             {"id": old.id},
         )
         db_session.commit()
 
-        new = _make_request(db_session, alice.id, "HR", "low", 999.0)
+        _make_request(db_session, alice.id, "HR", "low", 999.0)
 
         resp = client.get("/analytics/spend?date_to=2020-12-31", headers=auth_headers["admin"])
         assert resp.status_code == 200

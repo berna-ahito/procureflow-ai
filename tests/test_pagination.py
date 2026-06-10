@@ -19,6 +19,7 @@ def _make_request(db_session, requester_id: int, vendor_id: int, n: int) -> list
             requester_id=requester_id,
         )
         db_session.add(req)
+        reqs.append(req)
     db_session.commit()
     return reqs
 

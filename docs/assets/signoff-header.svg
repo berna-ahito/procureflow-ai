@@ -1,5 +1,5 @@
 <svg width="1200" height="400" viewBox="0 0 1200 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Signoff — AI-assisted approval workflow</title>
+  <title id="title">Signoff - AI-assisted approval workflow</title>
   <desc id="desc">A dark navy GitHub README banner for Signoff with document, approval, RBAC, audit logs, and human review motifs.</desc>
 
   <defs>
@@ -47,19 +47,19 @@
   </text>
 
   <text x="264" y="226" fill="#34E6DC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="31" font-weight="700">
-    AI-assisted approval workflow
+    Approval routing for purchase requests
   </text>
 
   <text x="264" y="286" fill="#F8FBFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="25" font-weight="500">
-    RBAC
+    request intake
   </text>
-  <circle cx="354" cy="278" r="4.5" fill="#34E6DC"/>
-  <text x="382" y="286" fill="#F8FBFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="25" font-weight="500">
-    audit logs
+  <circle cx="440" cy="278" r="4.5" fill="#34E6DC"/>
+  <text x="465" y="286" fill="#F8FBFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="25" font-weight="500">
+    AI risk checks
   </text>
-  <circle cx="526" cy="278" r="4.5" fill="#34E6DC"/>
-  <text x="554" y="286" fill="#F8FBFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="25" font-weight="500">
-    human review
+  <circle cx="645" cy="278" r="4.5" fill="#34E6DC"/>
+  <text x="670" y="286" fill="#F8FBFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="25" font-weight="500">
+    audit trail
   </text>
 
   <g transform="translate(815 88)">

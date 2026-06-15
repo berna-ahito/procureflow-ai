@@ -2,26 +2,38 @@
 
 <img src="docs/assets/signoff-header.svg" alt="Signoff procurement approval app" width="900">
 
+</div>
+
+# Signoff
+
 **Procurement approval app for request intake, approval routing, AI risk checks, and audit trails.**
 
-Signoff lets employees submit purchase requests, routes each request to the right reviewers, flags risk with AI, and records every decision.
-
-It is designed for teams that need a clearer way to review spending requests without losing decisions in email threads or spreadsheets.
+Signoff helps teams turn scattered purchase requests into structured approvals. Employees submit requests, Signoff routes each request to the right reviewers, AI flags risk or missing information, and every decision is recorded.
 
 [![Backend Tests](https://img.shields.io/badge/backend-170%20tests-brightgreen?style=flat-square)](https://github.com/berna-ahito/signoff)
 [![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen?style=flat-square)](https://github.com/berna-ahito/signoff)
 [![Frontend Tests](https://img.shields.io/badge/frontend-38%20tests-brightgreen?style=flat-square)](https://github.com/berna-ahito/signoff)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 
-</div>
-
 ---
 
 ## The problem this solves
 
-Procurement requests often start in email, chat, or spreadsheets. That makes approvals, reviewer responsibility, and decision history hard to track.
+Purchase requests often start in email, chat, or spreadsheets. That makes it hard to track who requested the spend, who needs to review it, what risk was flagged, and why the final decision was made.
 
-Signoff keeps the request, approval path, AI review, and audit history in one place.
+Signoff gives that workflow one place to live. Requesters submit structured purchase requests, managers and finance users review the right queue, AI highlights risk or missing information, and the system keeps an audit trail of every status change, note, and decision.
+
+---
+
+## How it works
+
+1. A requester submits a purchase request with amount, category, urgency, vendor details, and attachments.
+
+2. Signoff routes the request to the right reviewer based on approval rules.
+
+3. AI adds advisory risk notes, but humans make the final decision.
+
+4. Every status change, reviewer note, and decision is saved for audit review.
 
 ---
 
@@ -158,22 +170,22 @@ Coverage target: ≥ 94% backend, all frontend test suites green.
 
 ## Project structure
 
-```
+```text
 signoff/
-├── app/
-│   ├── core/          # auth, deps, rate limiter, security
-│   ├── db/            # SQLAlchemy models and session
-│   ├── routers/       # FastAPI routers per domain
-│   ├── schemas/       # Pydantic request/response models
-│   └── services/      # AI review, approval engine, notifications
-├── tests/             # pytest test suite
+├── app/               # FastAPI backend application
+│   ├── core/          # auth, dependencies, rate limiter, security
+│   ├── db/            # SQLAlchemy models and database session
+│   ├── routers/       # API routes by domain
+│   ├── schemas/       # Pydantic request and response models
+│   └── services/      # approval engine, AI review, notifications
+├── tests/             # backend pytest suite
 ├── frontend/
 │   ├── src/
-│   │   ├── api/       # axios client + per-domain helpers
+│   │   ├── api/       # axios client and API helpers
 │   │   ├── components/# shared UI components
 │   │   ├── pages/     # route-level page components
-│   │   ├── lib/       # authStore, hooks
-│   │   └── __tests__/ # Vitest unit tests
+│   │   ├── lib/       # auth store and shared utilities
+│   │   └── __tests__/ # Vitest frontend tests
 ├── render.yaml
 └── .env.example
 ```
